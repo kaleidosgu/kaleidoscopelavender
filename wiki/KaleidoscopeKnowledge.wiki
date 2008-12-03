@@ -1,7 +1,7 @@
 = Introduction =
 
 The Kaleidoscope base knowledge
-
+from 12 clock start with  first ，sixth, fifth, forth, third, second
 
 = Details =
 
