@@ -1,10 +1,6 @@
 = Introduction =
 
 The Kaleidoscope base knowledge
-                1
-         2             6
-         3             5
-                4
 
 
 = Details =
