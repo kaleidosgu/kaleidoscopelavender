@@ -1,0 +1,1 @@
+#define GetColor32(R,G,B) ( R << 16 ) | (G << 8 ) | ( B )
