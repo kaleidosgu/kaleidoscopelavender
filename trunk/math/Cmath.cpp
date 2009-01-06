@@ -10,7 +10,7 @@ CMath::~CMath(void)
 }
 void CMath::_caldegree()
 {
-	for (int ang = 0; ang < 360; ang++)
+	for (int ang = 0; ang < MAX_ANGLE; ang++)
 	{
 		// convert ang to radians
 		float theta = (float)ang*PI/(float)180;
@@ -42,7 +42,7 @@ float CMath::getSin( unsigned int angle )
 bool CMath::_IsAngleValid( unsigned int angle )
 {
 	bool bResult = false;
-	if( angle < 360 )
+	if( angle < MAX_ANGLE )
 	{
 		bResult = true;
 	}

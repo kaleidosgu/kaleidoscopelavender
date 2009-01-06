@@ -1,2 +1,3 @@
 
 #define PI 3.1415926535
+#define MAX_ANGLE 360
