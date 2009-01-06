@@ -11,8 +11,8 @@ private:
 	void _caldegree();
 	bool _IsAngleValid( unsigned int angle );
 private:
-	float cos_look[360];
-	float sin_look[360];
+	float cos_look[MAX_ANGLE];
+	float sin_look[MAX_ANGLE];
 
 };
 #endif

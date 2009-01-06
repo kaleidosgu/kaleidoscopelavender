@@ -43,24 +43,3 @@ void CDrawShape::DrawCircle( SDL_Surface *screen, Uint8 R, Uint8 G, Uint8 B)
 		}
 	}
 }
-void CDrawShape::AddRadius()
-{
-	m_nRadius +=2;
-}
-void CDrawShape::InitRadius()
-{
-	m_nRadius = 0;
-}
-void CDrawShape::move()
-{
-	m_nY += 3;
-	if( m_nY >= SCREEN_HEIGHT)
-	{
-		m_nY = SCREEN_HEIGHT;
-	}	
-}
-void CDrawShape::SetPos(int x , int y)
-{
-	m_nX = x;
-	m_nY = y;
-}
