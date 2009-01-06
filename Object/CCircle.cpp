@@ -20,6 +20,7 @@ void CCircle::Move()
 		if( m_nY >= SCREEN_HEIGHT)
 		{
 			m_nY = SCREEN_HEIGHT;
+			m_bMove = false;
 		}
 	}
 }
@@ -43,12 +44,12 @@ void CCircle::Draw()
 	int x = 0;
 	int y = 0;
 	const int backre = m_nRadius;
-	for( int q = 0; q < backre; q++)
+	for( int q = 0; q < 3; q++)
 	{
 		for( int i = 0; i < MAX_ANGLE; i++)
 		{
-			x = q * m_mathConst.getCos(i) + m_nX;
-			y = q * m_mathConst.getSin(i) + m_nY;
+			x = ( backre + q) * m_mathConst.getCos(i) + m_nX;
+			y = ( backre + q)  * m_mathConst.getSin(i) + m_nY;
 			if( x >=0 && y >=0 && (x < SCREEN_WIDTH && y < SCREEN_HEIGHT))
 			{
 				m_draw.DrawPixel(m_pScreen,0,1,1,x,y);
