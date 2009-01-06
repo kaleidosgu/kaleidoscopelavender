@@ -1,9 +1,12 @@
 #include "CCircle.h"
 #include "../video/VideoDefine.h"
-CDrawShape CCircle::draw;
-CCircle::CCircle(void)
+CDrawShape CCircle::m_draw;
+CCircle::CCircle(SDL_Surface* screen)
 {
 	m_nRadius = 0;
+	m_pScreen = screen;
+	m_bUpdate = true;
+	m_bMove   = false;
 }
 CCircle::~CCircle(void)
 {
@@ -11,21 +14,31 @@ CCircle::~CCircle(void)
 void CCircle::Move()
 {
 	IObject::Move();
-	m_nY += 3;
-	if( m_nY >= SCREEN_HEIGHT)
+	if( m_bMove )
 	{
-		m_nY = SCREEN_HEIGHT;
+		m_nY += 3;
+		if( m_nY >= SCREEN_HEIGHT)
+		{
+			m_nY = SCREEN_HEIGHT;
+		}
 	}
 }
 void CCircle::Update()
 {
-	m_nRadius +=2;
+	if( m_bUpdate )
+	{
+		m_nRadius +=2;
+	}
 }
 void CCircle::Init()
 {
 	m_nRadius = 0;
 }
-void Draw()
+void CCircle::StopUpdate()
+{
+	m_bUpdate = false;
+}
+void CCircle::Draw()
 {
 	int x = 0;
 	int y = 0;
@@ -38,8 +51,12 @@ void Draw()
 			y = q * m_mathConst.getSin(i) + m_nY;
 			if( x >=0 && y >=0 && (x < SCREEN_WIDTH && y < SCREEN_HEIGHT))
 			{
-				DrawPixel(screen,R,G,B,x,y);
+				m_draw.DrawPixel(m_pScreen,0,1,1,x,y);
 			}
 		}
 	}
+}
+void CCircle::StartMove()
+{
+	m_bMove = true;
 }
